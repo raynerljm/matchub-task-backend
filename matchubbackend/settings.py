@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-_3o%w&+(+6g)8%m_(zdgxlo-h@0+youxn9rvfx&d8id8lg#3c-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["raynerljm.pythonanywhere.com"]
+# Allows CORS headers
+CORS_ORIGIN_ALLOW_ALL = True
+
+ALLOWED_HOSTS = ["raynerljm.pythonanywhere.com", "*"]
 
 
 # Application definition
@@ -44,11 +47,12 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',  
 ]
 
 ROOT_URLCONF = 'matchubbackend.urls'
