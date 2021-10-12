@@ -22,8 +22,10 @@ class Choice(models.Model):
 
 class Answer(models.Model):
     name = models.CharField(max_length=255)
-    questionId = models.ForeignKey(Question, on_delete=CASCADE, to_field="questionId")
-    choiceId = models.ForeignKey(Choice, on_delete=CASCADE, to_field="choiceId")
+    questionId = models.IntegerField()
+    choiceId = models.IntegerField()
+    # questionId = models.ForeignKey(Question, on_delete=CASCADE, to_field="questionId")
+    # choiceId = models.ForeignKey(Choice, on_delete=CASCADE, to_field="choiceId")
 
     class Meta:
         unique_together = (("name", "questionId", "choiceId"))
