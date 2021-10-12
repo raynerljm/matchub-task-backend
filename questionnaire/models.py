@@ -15,9 +15,10 @@ class Choice(models.Model):
    choiceId = models.IntegerField(primary_key=True)
    questionId = models.IntegerField()
    choice = models.CharField(max_length=255)
+   label = models.CharField(max_length=255)
 
    def __str__(self):
-       return "Question: " + str(self.questionId) + "; "  + str(self.choiceId) + ": " + self.choice
+       return "Question: " + str(self.questionId) + "; "  + str(self.choiceId) + ": " + self.label + "(" + self.choice + ")"
 
 class Answer(models.Model):
     name = models.CharField(max_length=255)
